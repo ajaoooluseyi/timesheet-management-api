@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import Session
 
 # Update the PostgreSQL connection URL
-SQLALCHEMY_DATABASE_URL = "postgresql://timesheet:timesheet@localhost/timesheet"
+SQLALCHEMY_DATABASE_URL = "postgresql://timesheet:timesheet@localhost:5432/timesheet"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 

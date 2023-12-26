@@ -58,7 +58,7 @@ class TimesheetCRUD:
         self, user_id: UUID, task_id: UUID,
     ) -> Timesheet:
         try:
-            db_timesheet = self.get_task_timesheet(task_id=task_id, user_id=user_id)
+            db_timesheet = self.get_user_task_timesheet(task_id=task_id, user_id=user_id)
             if db_timesheet is None:
                 raise BaseNotFoundException("The task does not exist.")
 
@@ -77,9 +77,15 @@ class TimesheetCRUD:
     def get_task_timesheets(self, task_id: UUID) -> list[Timesheet]:
         return self.db.query(Timesheet).filter(Timesheet.task_id == task_id).all()
 
-    def get_task_timesheet(self, task_id: UUID, user_id: UUID) -> Timesheet:
+    def get_user_task_timesheet(self, task_id: UUID, user_id: UUID) -> Timesheet:
         return (
             self.db.query(Timesheet)
             .filter(Timesheet.task_id == task_id, Timesheet.user_id == user_id)
             .first()
         )
+   
+    def get_total_user_timesheets(self, user_id: UUID) -> int:
+        return self.db.query(Timesheet).filter(Timesheet.user_id == user_id).count()
+
+    def get_total_task_timesheets(self, task_id: UUID) -> int:
+        return self.db.query(Timesheet).filter(Timesheet.task_id == task_id).count()

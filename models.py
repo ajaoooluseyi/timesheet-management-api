@@ -12,7 +12,7 @@ class Task(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, index=True, default=uuid.uuid4)
 
     # Define the relationship with the Timesheet model
-    timesheets = relationship("Timesheet", back_populates="task")
+    timesheets = relationship("Timesheet")
 
 
 class User(Base):
