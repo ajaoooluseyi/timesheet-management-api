@@ -1,7 +1,7 @@
-# Timesheet Management Service API
+# Timesheet Management API
 
 ## Description
-The Timesheet Management Service API is designed for efficient task assignment and timesheet generation. Built on PostgreSQL, this API streamlines the process of managing tasks and tracking time for staff members, including temporary and contract workers. Staff members, including temporary and contract workers, will be able to submit their timesheets electronically through the system. It generates the timesheets for tasks and staff members, simplifying administrative tasks and ensuring accurate record-keeping. 
+The Timesheet Management API is designed for efficient task assignment and timesheet generation. Built on PostgreSQL, this API streamlines the process of managing tasks and tracking time for staff members, including temporary and contract workers. Staff members, including temporary and contract workers, will be able to submit their timesheets electronically through the system. It generates the timesheets for tasks and staff members, simplifying administrative tasks and ensuring accurate record-keeping. 
 
 ### Dependencies
 * FastAPI
