@@ -8,19 +8,6 @@ The Timesheet Management Service API is designed for efficient task assignment a
 * PostgreSQL|
 * Python version 3.11 
 
-### Set up PostgreSQL:
-
-- Install PostgreSQL on your system if not already installed.
-- Open your command-line interface (CLI) or terminal.
-- Connect to the PostgreSQL server (using psql) by entering the following command:
-```bash
-psql -U your_username
-```
-- Create a database for the API
-```sql
-CREATE DATABASE timesheet;
-```
-
 ### Features
 - Task assignment: Assign tasks to staff members with ease.
 - Timesheet generation: Automatically generate timesheets detailing hours worked for each job assignment.
@@ -60,10 +47,20 @@ To install all the required dependencies execute the below command.
 ```python
 $ pip install -r requirements.txt
 ```
-Setup the postgresql database as instructed above
+
+Set up PostgreSQL:
+- Install PostgreSQL on your system if not already installed.
+- Open your command-line interface (CLI) or terminal.
+- Connect to the PostgreSQL server (using psql) by entering the following command:
+```bash
+psql -U your_username
+```
+- Create a database for the API
+```sql
+CREATE DATABASE timesheet;
+```
 
 To run the app, navigate to the app folder in your virtual environment and execute the command below
 ```python
 $ uvicorn main:app --reload
 ```
-
