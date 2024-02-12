@@ -38,7 +38,7 @@ $ source venv/Script/activate
 Clone this repository in the projects' working directory by executing the command below.
 
 ```python
-$ git clone https://github.com/ajaoooluseyi/timesheet-mgt.git
+$ git clone https://github.com/ajaoooluseyi/timesheet-management-api.git
 $ cd timesheet-mgt
 ```
 
