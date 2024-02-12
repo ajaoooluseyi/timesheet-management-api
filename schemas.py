@@ -1,47 +1,46 @@
 from pydantic import BaseModel
 from datetime import datetime
 from uuid import UUID
-from typing import List
+from typing import List, Optional
 
 
-class Timesheet(BaseModel):
+class ParentPydanticModel(BaseModel):
+    # model_config = ConfigDict(from_attributes=True)
+
+    class Config:
+        orm_mode = True
+
+
+class Timesheet(ParentPydanticModel):
     task_id: UUID
     user_id: UUID
     date_clocked_in: datetime
-    date_clocked_out: datetime
+    date_clocked_out: Optional[datetime]
     date_recorded: datetime
 
 
-class TimesheetCreate(BaseModel):
+class TimesheetCreate(ParentPydanticModel):
     task_id: UUID
     user_id: UUID
 
 
-class TimesheetClockOut(BaseModel):
-    user_id: UUID
-
-
-class TimesheetOut(BaseModel):
-    timesheets: List[Timesheet]
- 
-
-class TimesheetList(TimesheetOut):
+class TimesheetClockOut(TimesheetCreate):
     pass
 
 
-class User(BaseModel):
+class TimesheetOut(ParentPydanticModel):
+    total: int
+    timesheets: List[Timesheet]
+
+
+class User(ParentPydanticModel):
     id: UUID
     username: str
 
 
-class UserCreate(BaseModel):
+class UserCreate(ParentPydanticModel):
     username: str
 
 
-class TaskCreate(BaseModel):
-    pass  # No fields for creating a task, as it only has an ID
-
-
-class Task(BaseModel):
+class Task(ParentPydanticModel):
     id: UUID
-
